@@ -1,0 +1,83 @@
+.noyt {
+top:-2000px!important;
+}
+
+.selezionato {
+background-color:rgba(252,252,252,1);
+}
+
+#placeholderloading {
+margin-top:20px;
+text-align:center;
+font-size:1000%;
+}
+
+.button-bar .icon {
+color:#000;
+}
+
+.button-bar a {
+border-color:#cacaca;
+}
+
+.mb0 {
+margin-bottom:0;
+}
+
+.videi button i {
+font-size:165%;
+}
+
+#video {
+position:fixed;
+top:44px;
+z-index:999;
+}
+
+.f70 {
+font-size:70px;
+}
+
+.item-thumbnail-left,.item-thumbnail-left .item-content {
+min-height:95px;
+}
+
+:focus {
+outline:none!important;
+}
+
+.m5 {
+margin-top:5px;
+}
+
+.verde {
+color:#25a72a!important;
+}
+
+.rosso {
+color:#ca1b1b!important;
+}
+
+.blu {
+color:#1a46d1!important;
+}
+
+.barpulsanti {
+height:51px;
+}
+
+.item-input-wrapper {
+background-color:transparent;
+}
+
+#parola {
+font-size:180%;
+}
+
+.form.ng-invalid {
+box-shadow:inset 2px 0 1px red;
+}
+
+.form.ng-valid {
+box-shadow:inset 2px 0 1px #00FF14;
+}

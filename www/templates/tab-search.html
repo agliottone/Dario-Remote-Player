@@ -1,0 +1,30 @@
+<ion-view title="{{ 'Search' | translate }}">
+    <ion-nav-buttons side="left" ng-controller="TransCtrl">
+        <button ng-click="openModal()" class="button button-icon icon ion-gear-a"></button>
+    </ion-nav-buttons>
+    <ion-content class="has-header padding">
+        <div class="list">
+            <label class="item item-input" ng-click="openModal()">
+                <i class="icon ion-search placeholder-icon" ng-class="{'ion-search': (!(inricerca)),'ion-loading-a': inricerca}"></i>
+                <span>{{parola}}</span>
+            </label>
+        </div>
+        <ul class="list">
+            <a ng-repeat="video in videos" class="videi item item-thumbnail-left" href="#" ng-click="clicca(video)" ng-class="{'selezionato': (current && video && current.id==video.id)}">
+                <img class="m5" ng-src="{{video.thumbnail.sqDefault}}">
+                <h2 class="cap" ng-hide="cliccato && cliccato.id==video.id || (current && video && current.id==video.id)">{{ video.title |capitalize}}</h2>
+                <p class="mb0" ng-hide="cliccato && cliccato.id==video.id || (current && video && current.id==video.id)"><span ng-if="video.category!='Music'">{{ video.category }} -</span><i ng-if="video.category=='Music'" class="ion-music-note"></i> {{ video.uploader }}
+                    <br>{{ minuti(video.duration) }}</p>
+                <button ng-show="isremoto() && cliccato && cliccato.id==video.id || (current.id==video.id && isremoto())" class="button button-large button2 button-light" ng-click="send_video(video)">
+                    <i class="ion-ios7-cloud-upload-outline"></i>
+                </button>
+                <button ng-disabled="scaricato(video)" ng-if="downloader" ng-show="cliccato && cliccato.id==video.id || (current.id==video.id)" class="button button-large button2 button-light" ng-click="down_video(video)">
+                    <i class="ion-arrow-graph-down-right"></i>
+                </button>
+                <button ng-show="cliccato && cliccato.id==video.id || (current && video && current.id==video.id)" class="button button-large button-light" ng-click="select_play_video(video)">
+                    <i class="icon" ng-class="{'ion-volume-high': current.id==video.id , 'ion-volume-low': current.id!=video.id}"></i>
+                </button>
+            </a>
+        </ul>
+    </ion-content>
+</ion-view>

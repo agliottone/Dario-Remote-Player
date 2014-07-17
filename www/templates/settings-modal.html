@@ -1,0 +1,30 @@
+<div class="modal modal-lg" data-backdrop=static>
+    <ion-content>
+        <div class="list" ng-show="tab=='lingua'">
+            <label ng-repeat="lingua in lingue" class="item item-radio">
+                <input ng-model="$parent.linguasel" ng-change="set_lingua(lingua)" type="radio" name="lingua" value="{{lingua.code}}" ng-checked="lingua.code == $parent.linguasel.code">
+                <div class="item-content">
+                    {{lingua.nome}}
+                </div>
+                <i class="radio-icon ion-checkmark"></i>
+            </label>
+        </div>
+        <div class="list" ng-show="tab=='help'">
+            <p>
+                <a href="http://darioagliottone.it" target="_blank"></a>
+            </p>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="bar-light" style=" margin: 0; padding: 0; ">
+        <div class="tabs tabs-icon-top">
+            <a class="tab-item" ng-class="{'tab-item-active': tab=='lingua'}" ng-click="cambia_tab('lingua')">
+                <i class="icon ion-flag"></i>
+                {{ 'Language' | translate }}
+            </a>
+            <a class="tab-item" ng-class="{'tab-item-active': tab=='help'}" ng-click="cambia_tab('help')">
+                <i class="icon ion-social-github"></i>
+                {{ 'Help' | translate }}
+            </a>
+        </div>
+    </ion-footer-bar>
+</div>

@@ -1,0 +1,35 @@
+<!-- 
+  Create tabs with an icon and label, using the tabs-positive style. 
+  Each tab's child <ion-nav-view> directive will have its own 
+  navigation history that also transitions its views in and out.
+-->
+<ion-tabs class="tabs-icon-top">
+
+
+  <!-- Search Tab -->
+  <ion-tab title="{{ 'Search' | translate }}" icon="icon ion-search" href="#/tab/search">
+    <ion-nav-view name="tab-search"></ion-nav-view>
+  </ion-tab>
+
+
+  <!-- Player Tab -->
+  <ion-tab title="{{ 'Player' | translate }}" icon="icon ion-ipod" href="#/tab/player">
+    <ion-nav-view name="tab-player"></ion-nav-view>
+  </ion-tab>
+
+
+  <!-- Sync Tab -->
+  <ion-tab title="{{ 'Sync' | translate }}"  icon="icon ion-shuffle" href="#/tab/sync">
+    <ion-nav-view name="tab-sync"></ion-nav-view>
+  </ion-tab>
+  
+  <!-- About 
+  <ion-tab  title="{{ 'Downloader' | translate }}"  icon="icon ion-arrow-graph-down-right" href="#/tab/down">
+    <ion-nav-view name="tab-down"></ion-nav-view>
+  </ion-tab>
+Tab-->
+
+</ion-tabs>
+<div class="video-container">
+<div id="video"></div>
+</div>

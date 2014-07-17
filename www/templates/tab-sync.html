@@ -1,0 +1,46 @@
+<ion-view title="Sync">
+    <ion-nav-buttons side="left" ng-controller="TransCtrl">
+        <button ng-click="openModal()" class="button button-icon icon ion-gear-a"></button>
+    </ion-nav-buttons>
+    <ion-content class="has-header padding">
+        <div class="list">
+            <form ng-submit="">
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">
+     <b ng-show="nome && (richiesta == nome)" ><i class="ion-checkmark verde"></i> {{ 'Device Connected' | translate }}</b>
+        <b ng-show="(!(nome)) && (!(  (nome != richiesta) && (!(timeout)) ))" >{{ 'Name of the Device' | translate }}</b>
+       <b ng-show="(nome != richiesta) && (!(timeout)) " ><i class="ion-alert-circled rosso"></i> {{ 'Name already taken' | translate }}</b>
+       <b ng-show="(timeout) && (!(nome && (richiesta == nome))) && nome" ><i class="ion-loading-a blu"></i> {{ 'Registration in progress..' | translate }}</b>
+ 
+      </span>
+                    <input ng-change="registra(richiesta)" ng-model="richiesta" ng-class="{valido: (!(nome)) }" type="text" placeholder="{{ 'Name of the Device' | translate }}">
+                </label>
+        </div>
+        <div class="list">
+            </form>
+            <form ng-submit="collega(remoto)">
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">
+      
+      <b ng-show="remoto && (remoto == collegato)" ><i class="ion-checkmark verde"></i> {{ 'Remote Device Connected' | translate }}</b>
+      <b ng-show="remoto && (remoto != collegato)" ><i class="ion-alert-circled rosso"></i> {{ 'Remote Device not found' | translate }}</b>
+      <b ng-show="(!(remoto))" >{{ 'Name of the Remote Device' | translate }}</b>
+      </span>
+                    <input ng-model="remoto" ng-change="collega(remoto)" type="text" placeholder="{{ 'Name of the Remote Device' | translate }}">
+                </label>
+            </form>
+        </div>
+        <div ng-if="remoto && video" class="button-bar">
+            {{ video}}
+        </div>
+        <div class="range button-bar list">
+            <i class="icon ion-volume-low"></i>
+            <input ng-disabled="(!(remoto))" ng-change="send_volume(remotevolume)" ng-model="remotevolume" type="range" name="volume">
+            <i class="icon ion-volume-high"></i>
+        </div>
+        <div ng-disabled="(!(remoto))" class="button-bar">
+            <a ng-disabled="(!(remoto))" ng-click="send_pause()" class=" button-large button button-icon icon  ion-pause"></a>
+            <a ng-disabled="(!(remoto))" ng-click="send_play()" class=" button-large button button-icon icon ion-play"></a>
+        </div>
+    </ion-content>
+</ion-view>

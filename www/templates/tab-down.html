@@ -1,0 +1,16 @@
+<ion-view title="{{ 'Downloader' | translate }}">
+    <ion-nav-buttons side="left" ng-controller="TransCtrl">
+        <button ng-click="openModal()" class="button button-icon icon ion-gear-a"></button>
+    </ion-nav-buttons>
+    <ion-content class="has-header padding">
+        <ul class="list">
+            <div ng-repeat="video in lista" class="item item-button-right item-thumbnail-left">
+                <img class="m5" ng-src="{{video.thumbnail.sqDefault}}">
+                <h2>{{ video.title}}</h2>
+                <p>{{ video.category }} - {{ video.uploader }}</p>
+                <a ng-disabled="(!(video.link)) && (!(video.errori))" class="f70 button-large button button-icon icon" ng-class="{'ion-arrow-graph-down-left': video.link && (!(video.errori)), 'ion-loading-a': (!(video.link)) &&  (!(video.errori)),'ion-alert-circled': (!(video.link)) &&  (video.errori) }" ng-href="{{video.link}}" target="_blank">
+                </a>
+            </div>
+        </ul>
+    </ion-content>
+</ion-view>

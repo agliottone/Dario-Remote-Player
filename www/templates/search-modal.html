@@ -1,0 +1,24 @@
+  <div class="modal modal-lg" data-backdrop=static >
+    <ion-content>
+<form ng-submit="cerca(parola)">
+  <div class="item item-input-inset">
+    <label class="item-input-wrapper">
+      <input id="parola" ng-model="parola" type="text" placeholder="{{ 'Type here' | translate }}" ng-change="suggerisci(parola)"/>
+    </label>
+    <button class="button button-medium button-light" ng-click="cerca(parola)">
+      {{ 'Search' | translate }}
+    </button>
+  </div>
+ </form>
+      <ul class="list" ng-show="suggerimenti.length && parola">
+    <li ng-repeat="suggerimento in suggerimenti" ng-click="cerca(suggerimento)" class="item">
+      {{ suggerimento}}
+    </li>
+</ul>
+ <ul class="list"  ng-show="storia && storia.length  && (!(parola))">
+    <li ng-repeat="suggerimento in storia" ng-click="cerca(suggerimento)" class="item">
+      {{ suggerimento}}
+    </li>
+</ul>
+    </ion-content>
+  </div>

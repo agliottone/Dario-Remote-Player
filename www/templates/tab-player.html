@@ -1,0 +1,22 @@
+<ion-view title="{{ 'Player' | translate }}">
+    <ion-nav-buttons side="left">
+        <div class="bar bar-header bar-light">
+            <div class="range button-bar list">
+                <i class="icon ion-volume-low"></i>
+                <input ng-change="set_volume(volume)" ng-model="volume" type="range" name="volume">
+                <i class="icon ion-volume-high"></i>
+            </div>
+        </div>
+    </ion-nav-buttons>
+    <ion-content class="has-header padding">
+        <div ng-show="current" id="placeholderloading"><i class="icon ion-loading-a"></i>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="bar-light barpulsanti">
+        <div ng-show="current" class="button-bar">
+            <a ng-if="downloader" ng-disabled="scaricato() " ng-click="down_video()" class=" button-large button button-icon icon ion-arrow-graph-down-right"></a>
+            <a ng-click="play_pause()" class=" button-large button button-icon icon ion-pause" ng-class="{'ion-play': (!(isPlaying)),'ion-pause': isPlaying}"></a>
+            <a ng-click="elimina()" class=" button-large button button-icon icon ion-ios7-close-empty"></a>
+        </div>
+    </ion-footer-bar>
+</ion-view>
